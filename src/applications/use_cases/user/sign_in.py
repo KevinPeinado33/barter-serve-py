@@ -1,4 +1,4 @@
-from ....domain.repositories import UserRepository
+from src.domain.repositories.user_repository import UserRepository
 
 class SignInUsecase:
 

@@ -1,12 +1,8 @@
 from abc import ABC, abstractmethod
 
-from ..models import User
+from ..models.user_model import User
 
 class UserRepository(ABC):
-    
-    @abstractmethod
-    def get_by_email(self, email: str) -> User:
-        pass
     
     @abstractmethod
     def get(self, id: int) -> User:
@@ -23,3 +19,12 @@ class UserRepository(ABC):
     @abstractmethod
     def delete(self, id: int) -> None:
         pass
+
+    @abstractmethod
+    def get_all(self) -> list[User]:
+        pass
+
+    @abstractmethod
+    def get_by_email(self, email: str) -> User:
+        pass
+    

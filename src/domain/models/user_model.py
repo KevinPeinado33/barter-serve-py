@@ -5,9 +5,9 @@ class User:
             name: str, 
             email: str,
             password: str,
-            id: None = uuid4()
+            _id: str = None
         ):
-        self.id = id
+        self._id = _id or str(uuid4())
         self.name = name
         self.password = password
         self.email = email
@@ -15,7 +15,7 @@ class User:
     
     def to_dict(self):
         return {
-            'id': str(self.id),
+            '_id': str(self._id),
             'name': self.name,
             'email': self.email,
             'password': self.password

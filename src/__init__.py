@@ -1,8 +1,8 @@
 from flask import Flask
-from .adapters.injectors import Container
-import os
-import sys
 from flask_restx import Api
+import sys
+from .adapters.injectors.container import Container
+from .adapters.config.mongo_client import get_db
 
 def create_app():
 
@@ -12,6 +12,8 @@ def create_app():
     container.wire(modules=[sys.modules[__name__]])
 
     app.container = container
+    app.mongodb = get_db()
+
 
     api = Api(app, 
               version='1.0', 
